@@ -1,25 +1,28 @@
 import random
 
 def choseOptions():
-    option = ('rock', 'scissor', 'paper')
-    player = input('Choose your option 1,2,3 or rock, paper, scissor ').lower().strip()
+    print('Welcome to Rock, Scissor, Paper game!')
+    print('Please choose one of the following options:')
+    options = ('rock', 'scissor', 'paper')
+    for i, option in enumerate(options,1):
+        print(f'{i}. {option}')
     while True:
+        player = input().lower().strip()
         if player in ["1","2", "3"]:
             if player == "1":
                 player = "rock"
+                break
             elif player == "2":
                 player = "scissor"
+                break
             elif player == "3":
                 player = "paper"
-            else:
-                print('Invalid option. Please choose rock, paper or scissor')
                 break
-        if player not in option:
-            print('Invalid option. Please choose rock, paper or scissor')
-            return choseOptions()
+        elif player not in options:
+            print(f'Invalid option, {player} is not a valid choice. Please choose from {options}.')
         else:
             break
-    computer = random.choice(option)
+    computer = random.choice(options)
     return player, computer
 
 
