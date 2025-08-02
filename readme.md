@@ -1,4 +1,4 @@
-# Translation API with FastAPI and Hugging Face
+# Rock scissor game
 
 This project is for rock-scissor game
 
