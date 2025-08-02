@@ -1,1 +1,34 @@
-print("This is the index.py file.")
+import random
+
+def choseOptions():
+    option = ('rock', 'scissor', 'paper')
+    player = input('Choose your option (rock, scissor, paper): ').lower().strip()
+    if player not in option:
+        print('Invalid option. Please choose rock, paper or scissor')
+        return choseOptions()
+    computer = random.choice(option)
+    return player, computer
+
+
+def checkWinner(player, computer):
+    if player == computer:
+        return 'Its a tie'
+    elif player == 'rock':
+        if computer == 'scissor':
+            return 'Rock crashes scissor. You win!'
+        else:
+            return 'Paper covers rock. You lose!'
+    elif player == 'scissor':
+        if computer == 'paper':
+            return 'Scissor cuts paper. You win!'
+        else:
+            return 'Rock crashes scissor. You lose!'
+    elif player == 'paper':
+        if computer == 'rock':
+            return 'paper cover rock.You win!'
+        else:
+            return 'Scissor cuts paper. You lose!'
+        
+value = choseOptions()
+print(f'You chose: {value[0]} and computer chose: {value[1]}')
+print(checkWinner(value[0], value[1]))
